@@ -54,6 +54,7 @@ jobs:
       run: kubectl create -f deployment.yml
     - name: run the service
       run: kubectl create -f service.yml 
-      ##
+    - name: Verify deployment
+      run: kubectl get pods
 
         
