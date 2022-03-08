@@ -1,0 +1,6 @@
+/home/nithinr/deploy/src/main/java/com/kindsonthegenius/thymeleafapp/controllers/StudentController.java
+/home/nithinr/deploy/src/main/java/com/kindsonthegenius/thymeleafapp/controllers/HomeController.java
+/home/nithinr/deploy/src/main/java/com/kindsonthegenius/thymeleafapp/models/Student.java
+/home/nithinr/deploy/src/main/java/com/kindsonthegenius/thymeleafapp/ThymeleafAppApplication.java
+/home/nithinr/deploy/src/main/java/com/kindsonthegenius/thymeleafapp/repositories/StudentRepository.java
+/home/nithinr/deploy/src/main/java/com/kindsonthegenius/thymeleafapp/services/StudentService.java

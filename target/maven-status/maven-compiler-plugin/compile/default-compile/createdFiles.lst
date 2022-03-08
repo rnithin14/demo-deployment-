@@ -1,0 +1,6 @@
+com/kindsonthegenius/thymeleafapp/repositories/StudentRepository.class
+com/kindsonthegenius/thymeleafapp/models/Student.class
+com/kindsonthegenius/thymeleafapp/controllers/StudentController.class
+com/kindsonthegenius/thymeleafapp/controllers/HomeController.class
+com/kindsonthegenius/thymeleafapp/ThymeleafAppApplication.class
+com/kindsonthegenius/thymeleafapp/services/StudentService.class
