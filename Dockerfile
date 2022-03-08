@@ -1,5 +1,5 @@
-FROM openjdk
-RUN  mkdir /app/
-COPY   .  /app/
-WORKDIR  /app/
-ENTRYPOINT ["java","-jar", "/app/target/thymeleaf-app-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:11
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+EXPOSE 8090
+ENTRYPOINT ["java","-jar","/app.jar"]
