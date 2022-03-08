@@ -1,19 +1,14 @@
-name: 'Build & Deploy to EKS'
+name: springboot
+
 on:
   push:
-    branches:
-      - main
-env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  EKS_CLUSTER: ${{ secrets.EKS_CLUSTER }}
-  EKS_REGION: ${{ secrets.EKS_REGION }}
-  DOCKER_ID: ${{ secrets.DOCKERHUB_USERNAME }}
-  DOCKER_PW: ${{ secrets.DOCKERHUB_TOKEN }}
+    branches: [ master ]
+
 jobs:
-  deploy:
-    name: BUILD 
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -35,25 +30,3 @@ jobs:
     - name: docker push
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/deployment:1
   
-    - name: Install kubectl
-      run: |
-          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-          curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-          echo "$(<kubectl.sha256) kubectl" | sha256sum --check
-          sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-          kubectl version --client
-    - name: Check AWS version
-      run: |
-          aws --version
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set region $EKS_REGION
-          aws sts get-caller-identity
-    - name: Connect to EKS cluster 
-      run: aws eks --region $EKS_REGION update-kubeconfig --name $EKS_CLUSTER
-    - name: Build and then deploy to EKS cluster 
-      run: kubectl create -f deployment.yml
-      run: kubectl create -f service.yml 
-      ##
-
-        
