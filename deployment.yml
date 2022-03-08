@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot
+  labels:
+    name: springboot
+    app: spring-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: springboot
+      app: spring-app
+  template:
+    metadata:
+      name: springboot
+      labels:
+        name: springboot
+        app: spring-app
+    spec:
+      containers:
+      - name: springapp
+        image: nithin321/deployment:latest
+        ports:
+        - containerPort: 8080
