@@ -22,4 +22,4 @@ spec:
       - name: springapp
         image: nithin321/deployment:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
