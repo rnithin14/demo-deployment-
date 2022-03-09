@@ -56,8 +56,8 @@ jobs:
       run: aws eks --region $EKS_REGION update-kubeconfig --name $EKS_CLUSTER
     - name: run deploy 
       run: |
-        kubectl create -f ./deployment.yml
-        kubectl create -f ./service.yml 
+        kubectl create -f /deploy/deployment.yml
+        kubectl create -f /deploy/service.yml 
 
 
         
