@@ -32,7 +32,7 @@ jobs:
 
     - name: extract branch name
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-       id: extract_branch 
+      id: extract_branch 
 
     - uses: actions/checkout@v2
     - name: build image 
